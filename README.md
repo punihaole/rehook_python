@@ -15,3 +15,28 @@ Retrieve a specific webhook: `RehookGateway().webhooks.retrieve('wh_abc123')`
 >>> RehookGateway().webhooks.retrieve('wh_k9tbplxnv6gb')
 <Webhook id: 'wh_k9tbplxnv6gb', scheme: 'http', path: '/test', method: 'GET', query_pa... 4334385168
 ```
+
+1. You can query the webhooks headers
+```
+>>> webhook.headers
+{'Host': 'django-env.vhkawew7qf.us-west-2.elasticbeanstalk.com', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Cookie': 'csrftoken=uUMwTjUOjTRhGXzcbKengMx2mvyjvnSCY8gQXn3heJBm0Ci64o8HXdKU1TIGkA2K; sessionid=8iwufndsd3zga0a92pro2phiddj1fqk9', 'Pragma': 'no-cache', 'Connection': 'keep-alive', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:70.0) Gecko/20100101 Firefox/70.0', 'Cache-Control': 'no-cache', 'Accept-Encoding': 'gzip, deflate', 'Accept-Language': 'en-US,en;q=0.5', 'X-Forwarded-For': '208.185.211.138', 'X-Forwarded-Port': '80', 'X-Forwarded-Proto': 'http', 'Upgrade-Insecure-Requests': '1'}
+```
+2. You can query the webhooks metadata such has ip address, method, scheme.
+```
+>>> webhook.method
+'GET'
+>>> webhook.path
+'/test'
+>>> webhook.remote_address
+'208.185.211.138'
+>>> webhook.scheme
+'http'
+>>> webhook.date
+'2019-11-12T17:37:56.010680Z'
+```
+3. Query the webhook data (returns a dict).
+```
+>>> webhook.post_data
+{'param1': ['foo'], 'param2': ['bar', 'baz']}
+```
+
