@@ -24,3 +24,9 @@ class WebhooksGateway:
         data = resp.json()
         webhook = Webhook(data)
         return webhook
+
+    def delete(self, id):
+        req = requests.Request(method='DELETE',
+                               url=self.gateway.get_url(f'webhooks/{id}/'))
+        resp = self.gateway.send(req)
+        return resp.status_code in [200, 202, 204]
