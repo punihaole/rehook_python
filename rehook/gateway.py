@@ -4,7 +4,7 @@ from .webhooks_gateway import WebhooksGateway
 
 
 class RehookGateway:
-    def __init__(self, host='rehook.punihaole.com', port=443):
+    def __init__(self, host='dev-webhooks.rocketreach.co', port=443):
         self.schema = 'https'
         self.host = host
         self.port = port
