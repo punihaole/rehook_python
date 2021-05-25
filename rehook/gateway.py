@@ -5,7 +5,10 @@ from .webhooks_gateway import WebhooksGateway
 
 class RehookGateway:
     def __init__(self, host='dev-webhooks.rocketreach.co', port=443):
-        self.schema = 'https'
+        if port == 443:
+            self.schema = 'https'
+        else:
+            self.schema = 'http'
         self.host = host
         self.port = port
         self.session = requests.Session()
